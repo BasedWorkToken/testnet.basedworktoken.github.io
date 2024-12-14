@@ -45,7 +45,21 @@
 
 
 
-
+ <style>
+       
+           #countdown {
+            font-size: 7.5rem;
+            text-align: center;
+        }
+        .time-unit {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .time-unit span {
+            font-size: 7.5rem;
+            font-weight: bold;
+        }
+    </style>
 
 
 </head>
@@ -104,9 +118,62 @@
     <header id="myCarousel" class="carousel slide">
     <div class="banner-container">
   <img src="img/banner_orange.png" alt="Banner" class="banner-image">
- </div>
-  <div class="corner-image-container"></div> <!-- Div with the new class -->
-</div>
+ </div><br></br>
+ <h1><center>Countdown to Mainnet Mining Launch</center></h1>
+ 
+ <div id="countdown">
+        <div class="time-unit">
+            <span id="days">00</span>Days
+        </div>
+        <div class="time-unit">
+            <span id="hours">00</span>Hours
+        </div>
+        <div class="time-unit">
+            <span id="minutes">00</span>Minutes
+        </div>
+        <div class="time-unit">
+            <span id="seconds">00</span>Seconds
+        </div>
+    </div>
+
+
+
+
+    <script>
+        // Function to format time units
+        function formatTimeUnit(unit) {
+            return unit < 10 ? `0${unit}` : `${unit}`;
+        }
+
+        // Function to update the countdown
+        function updateCountdown(targetEpoch) {
+            const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+            const timeDifference = targetEpoch - currentTime;
+
+            if (timeDifference <= 0) {
+                document.getElementById('countdown').innerHTML = "Countdown Complete!";
+                clearInterval(interval);
+                return;
+            }
+
+            const days = Math.floor(timeDifference / (60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (60 * 60 * 24)) / (60 * 60));
+            const minutes = Math.floor((timeDifference % (60 * 60)) / 60);
+            const seconds = timeDifference % 60;
+
+            document.getElementById('days').textContent = formatTimeUnit(days);
+            document.getElementById('hours').textContent = formatTimeUnit(hours);
+            document.getElementById('minutes').textContent = formatTimeUnit(minutes);
+            document.getElementById('seconds').textContent = formatTimeUnit(seconds);
+        }
+
+        // Set your target epoch time here (in seconds)
+        const targetEpoch = 1738771200; // Replace with your epoch time
+
+        // Start the countdown
+        const interval = setInterval(() => updateCountdown(targetEpoch), 1000);
+    </script>
+
     </header>
     <!-- Page Content -->
     <div class="container addedstylediv">
@@ -165,7 +232,7 @@ Never before have all these technologies been on such an amazing layer 2 blockch
                   <div class="panel-body">
 
                       <!-- This is where users can download our miner or view the stats page -->
-                    <p>Proof of Work will distribute 48.5% of the total zkBitcoin Token Supply </p>
+                    <p>Proof of Work will distribute 48.5% of the total Based Work Token Supply </p>
                       <pre>A way to securely mint Base Work Tokens using our safe POW system and contracts.
 Machines connected to the contract solve complicated hashes with an answer unique to their ethereum address for the reward.
 Miners recieve 25 Base Work Tokens per mint able to bundle the mints up to 2016 times in one transaction!
@@ -882,7 +949,7 @@ By clicking buttons below in a browser with Metamask installed</pre>
                                             const tokenAddress2 = '0x19192f2059c881af6231f0969a0da2da9e8c09e8';
                                             const tokenSymbol2 = 'BWORK';
                                             const tokenDecimals2 = 18;
-                                            const tokenImage2 = 'https://zkbitcoin.org/img/zkBitcoin_icon_32px32px.png';
+                                            const tokenImage2 = 'https://basedworktoken.github.io/img/zkBitcoin_icon_32px32px.png';
         
                                         
                                                                                                
