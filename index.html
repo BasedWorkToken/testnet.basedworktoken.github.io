@@ -59,6 +59,13 @@
             font-size: 7.5rem;
             font-weight: bold;
         }
+        
+        #notice {
+            text-align: center;
+            font-size: 3rem; /* Adjust size as needed */
+            font-weight: bold;
+            color: #ff0000; /* Bright red for attention */
+        }
     </style>
 
 
@@ -185,11 +192,15 @@
             </div>
             <!-- This is where users can view our tokenomics on the index page-->   
 </center> 
-
+    <div id="notice">
+        Testnet Website<br>All Links Are for TESTNET ONLY
+	<!-- <a href="https://basedworktoken.org"">Go to Mainnet website</a> -->
+    </div>
+               
             <div class="md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><img alt="forge" src="./img/IconForge.png" width="50" height="50" style="margin-right: 1%;"> Based Work Token Information</h4><h6>Token Contract: 0x19192f2059c881af6231f0969a0da2da9e8c09e8</h6>
+                        <h4><img alt="forge" src="./img/IconForge.png" width="50" height="50" style="margin-right: 1%;">Testnet Based Work Token Information</h4><h6>Testnet Token Contract: 0x19192f2059c881af6231f0969a0da2da9e8c09e8</h6>
                         
                     </div>
                     <div class="panel-body">
@@ -201,7 +212,7 @@ Meaning all contracts then distribute half as many Based Work Tokens as the prev
 This is all done using a contract on the Base blockchain which are 100% decentralized, fair, trustless!
 Never before have all these technologies been on such an amazing layer 2 blockchain, Base Blockchain.</pre>
                         <a href="whitepaper.html" class="btn btn-default btnsex">WhitePaper</a>
-			<a href="https://sepolia.basescan.org/address/0x19192f2059c881af6231f0969a0da2da9e8c09e8" class="btn btn-default btnsex2">Based Work Token Contract</a>
+			<a href="https://sepolia.basescan.org/address/0x19192f2059c881af6231f0969a0da2da9e8c09e8" class="btn btn-default btnsex2">TESTNET Based Work Token Contract</a>
                       
                     </div>
                 </div>
@@ -218,7 +229,7 @@ Never before have all these technologies been on such an amazing layer 2 blockch
            
 <pre>10,835,900 (51.5%) Based Work Tokens are allocated to be allocated to the original 0xBitcoin holders</pre>
 <pre>10,164,100 (48.5%) Based Work Tokens distributed via Proof of Work Contract(Mining) </pre>
-                        <a href="stats.html" class="btn btn-default btnsex">Base Work Token Live Statistics Site</a>                      
+                        <a href="stats.html" class="btn btn-default btnsex">TESTNET Base Work Token Live Statistics Site</a>                      
 
                     </div>
                 </div>
@@ -226,7 +237,7 @@ Never before have all these technologies been on such an amazing layer 2 blockch
             <div class="md-4">
               <div class="panel panel-default">
                   <div class="panel-heading">
-                      <h4><i class="fa fa-fw fa-money"></i> Proof of Work Contract 
+                      <h4><i class="fa fa-fw fa-money"></i>TESTNET Proof of Work Contract 
 </h4>
                   </div>
                   <div class="panel-body">
@@ -247,29 +258,83 @@ Change this setting in your BaseWorkToken.conf file by changing the "MinBWORKper
 
                       <!--Download is located here, already rigged to the button for instant download-->
                       <!-- <a href="http://abastoken.org:81" class="btn btn-default btnsex1">Check the Mining Pool</a> -->
-                      <a href="https://sepolia.basescan.org/address/0x19192f2059c881af6231f0969a0da2da9e8c09e8" class="btn btn-default btnsex2">Proof of Work Contract link</a>
+                      <a href="https://sepolia.basescan.org/address/0x19192f2059c881af6231f0969a0da2da9e8c09e8" class="btn btn-default btnsex2">TESTNET Proof of Work Contract link</a>
                       <a href="howtomine.html" class="btn btn-default btnsex4">How to Mine</a>
-                      <a href="https://github.com/ZKBitcoinToken/Windows-CPU-GPU-zkBitcoin-Miner" class="btn btnsex5">Download Windows CPU & GPU Miner Here</a>
-                      <a href="https://github.com/ZKBitcoinToken/Linux-CPU-GPU-zkBitcoin-Miner" class="btn btnsex5">Download Linux CPU & GPU Miner Here</a>
+                      <a href="https://github.com/BasedWorkToken/BWORK-Testnet-Windows-Miner" class="btn btnsex5">Download TESTNET Windows CPU & GPU Miner Here</a>
+                      <a href="https://github.com/BasedWorkToken/Miner-Testnet-Ubuntu-16-18-20" class="btn btnsex5">Download TESTNET Ubuntu 16,18,20 CPU & GPU Miner Here</a>
+                      <a href="https://github.com/BasedWorkToken/Miner-Testnet-Ubuntu-22-24" class="btn btnsex5">Download TESTNET  Ubuntu 22&24 CPU & GPU Miner Here</a>
                      <!-- <a href="https://drive.google.com/u/3/uc?id=1bqd-IsWmDUhJEPFiCBx4Cab-WfS8I2vU&export=download" class="btn btnsex5">Download GPU Miner Here</a>
                       -->
                   </div>
               </div>
           </div>
+          
+          
+            <div class="md-4">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h4><i class="fa fa-fw fa-money"></i>TESTNET 0xBitcoin Conversion / Allocatioin
+</h4>
+                  </div>
+                  <div class="panel-body">
+
+                      <!-- This is where users can download our miner or view the stats page -->
+                    <p>The main contract will have an allocation for 10.8m tokens.  
+			These Based Work Tokens are reserved for 0xBitcoin -> Based Work Token convesion at 1:1</p>
+                      <pre>A way to securely allow the upgrade of 0xBitcoin to Based Work Tokens.
+The following are the two conversions allowed on the contract:
+</pre>
+1) Input: 0xBitcoin Token -> Output: (RightsTo0xBitcoin Token + Based Work Token)
+<br>
+2) Input: (RightsTo0xBitcoin Token + Based Work Token) -> Output: 0xBitcoin Token
+<pre>
+There are a total of three tokens used: Based Work Token, RightsTo0xBitcoin and 0xBitcoin Tokens.
+</pre><pre>
+Rights to 0xBitcoin is a seperate token that allows us to have a conversion both directions, sell it/trade it/provide liquidity for it, or hoard it!
+</pre>
+
+                      <!--Download is located here, already rigged to the button for instant download-->
+                      <!-- <a href="http://abastoken.org:81" class="btn btn-default btnsex1">Check the Mining Pool</a> --> 
+                             <a href="0xBitcoin_Converter.html" class="btn btn-default btnsex4">Testnet Converter dAPP Website</a>
+             
+                      <a href="https://sepolia.basescan.org/address/0x19192f2059c881af6231f0969a0da2da9e8c09e8" class="btn btn-default btnsex2">Testnet RightsTo0xBitcoin Token Link</a>
+                      <a href="https://sepolia.basescan.org/address/0x19192f2059c881af6231f0969a0da2da9e8c09e8" class="btn btn-default btnsex3">Testnet 0xBitcoin Token Link</a>
+                     <!-- <a href="https://drive.google.com/u/3/uc?id=1bqd-IsWmDUhJEPFiCBx4Cab-WfS8I2vU&export=download" class="btn btnsex5">Download GPU Miner Here</a>
+                      -->
+                  </div>
+              </div>
+          </div>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
             <div class="md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                            <h4><img alt="forge" src="./img/imgzz.png" width="50" height="50" style="margin-right: 1%;"> Add Tokens to Metamask 
+                            <h4><img alt="forge" src="./img/imgzz.png" width="50" height="50" style="margin-right: 1%;"> Add TESTNET Tokens to Metamask 
 </h4>
-                    </div><pre>Adds TESTNET Base Work Token Token to a users Metamask 
+                    </div><pre>Adds TESTNET Base Work Tokens, TESTNET 0xBitcoin, and TESTNET RightsTo0xBitcoin to a users Metamask 
 On the Base Sepolia TESTNET Blockchain Network (Chain ID: 84532)
 By clicking buttons below in a browser with Metamask installed</pre>
                     <div class="panel-body">
-<button type="button" class="a2zenableEthereumButton52221 btn btn-default btnsex5">Add TESTNET Base Work Tokens to Metamask</button>
-<!--
-                      <button type="button" class="azenableEthereumButton52221 btn btn-default btnsex4">Add Test ETH LP Tokens</button>
-                     <button type="button" class="azenableEthereumButton32221 btn btn-default btnsex4">Add Test 0xBTC LP Tokens</button>
-                     <button type="button" class="azenableEthereumButton222 btn btn-default btnsex1">Add Test 0xBitcoin Tokens</button>
+<button type="button" class="a2zenableEthereumButton52221 btn btn-default btnsex4">Add TESTNET Base Work Tokens to Metamask</button>
+
+                      <button type="button" class="azenableEthereumButton52221 btn btn-default btnsex2">Add TESTNET RightsTo0xBitcoin Tokens to Metamask</button>
+                <button type="button" class="azenableEthereumButton32221 btn btn-default btnsex3">Add Test 0xBitcoin Tokens to Metamask</button>
+             <!--        <button type="button" class="azenableEthereumButton222 btn btn-default btnsex1">Add Test 0xBitcoin Tokens</button>
 -->
                     </div>
                 </div>
@@ -826,7 +891,7 @@ By clicking buttons below in a browser with Metamask installed</pre>
                                           try {
                                               await ethereum.request({
                                                 method: 'wallet_switchEthereumChain',
-                                                params: [{ chainId: '0x144' }],
+                                                params: [{ chainId: '0x14a34' }],
                                               });
                                             } catch (switchError) {
                                               // This error code indicates that the chain has not been added to MetaMask.
@@ -834,15 +899,15 @@ By clicking buttons below in a browser with Metamask installed</pre>
                                                 try {
                                                   await ethereum.request({
                                                     method: 'wallet_addEthereumChain',
-                                                    params: [{ chainId: '0x144', 
-                                                    chainName: 'zkSync Era',
-                                                    nativeCurrency: {
+                                                    params: [{ chainId: '0x14a34', 
+                                                      chainName: 'Base Sepolia Testnet',
+                                                      nativeCurrency: {
                                                         name: 'Ethereum',
                                                         symbol: 'ETH', // 2-6 characters long
                                                         decimals: 18
                                                     },
-                                                    blockExplorerUrls: ['https://explorer.zksync.io/'],
-                                                    rpcUrls: ['https://mainnet.era.zksync.io'] }],
+                                                      blockExplorerUrls: ['https://sepolia.basescan.org'],
+                                                    rpcUrls: ['https://sepolia.base.org'] }],
                                                   });
                                                 } catch (addError) {
                                                   // handle "add" error
@@ -853,10 +918,10 @@ By clicking buttons below in a browser with Metamask installed</pre>
                                                     
                                             await new Promise(r => setTimeout(r, 20));
                                             accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-                                            const tokenAddress2 = '0xe21010cdA483ac1Ae6375e5D50dB2293307C4b60';
-                                            const tokenSymbol2 = 'ETH/zkBTC';
+                                            const tokenAddress2 = '0x8e1a661aa9866b7559638788fa268e4f04fdffab';
+                                            const tokenSymbol2 = 'R0xBTC';
                                             const tokenDecimals2 = 18;
-                                            const tokenImage2 = 'https://zkbitcoin.org/img/syncswap.png';
+                                            const tokenImage2 = 'https://basedworktoken.github.io/img/RightsTo0xBitcoin.png';
         
                                                                                                
                                             
@@ -1020,7 +1085,7 @@ By clicking buttons below in a browser with Metamask installed</pre>
                                           try {
                                               await ethereum.request({
                                                 method: 'wallet_switchEthereumChain',
-                                                params: [{ chainId: '0x144' }],
+                                                params: [{ chainId: '0x14a34' }],
                                               });
                                             } catch (switchError) {
                                               // This error code indicates that the chain has not been added to MetaMask.
@@ -1028,16 +1093,16 @@ By clicking buttons below in a browser with Metamask installed</pre>
                                                 try {
                                                   await ethereum.request({
                                                     method: 'wallet_addEthereumChain',
-                                                    params: [{ chainId: '0x144', 
-                                                    chainName: 'zkSync Era',
-                                                    nativeCurrency: {
+                                                    params: [{ chainId: '0x14a34', 
+                                                  chainName: 'Base Sepolia Testnet',
+                                                     nativeCurrency: {
                                                         name: 'Ethereum',
                                                         symbol: 'ETH', // 2-6 characters long
                                                         decimals: 18
-                                                    },
-                                                    blockExplorerUrls: ['https://explorer.zksync.io/'],
-                                                    rpcUrls: ['https://mainnet.era.zksync.io'] }],
-                                                  });
+                                                            },
+                                                    blockExplorerUrls: ['https://sepolia.basescan.org'],
+                                                    rpcUrls: ['https://sepolia.base.org'] }],
+                                          	    });
                                                 } catch (addError) {
                                                   // handle "add" error
                                                 }
@@ -1047,13 +1112,11 @@ By clicking buttons below in a browser with Metamask installed</pre>
                                                     
                                             await new Promise(r => setTimeout(r, 20));
                                             accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-                                            const tokenAddress2 = '0xBA6d9490927F71069c676f251060913b095a5741';
-                                            const tokenSymbol2 = '0xBTC/zkBTC';
-                                            const tokenDecimals2 = 18;
-                                            const tokenImage2 = 'https://zkbitcoin.org/img/syncswap.png';
-        
-                                                                                               
-                                                                                              
+                                            const tokenAddress2 = '0x9103f5c36f0dd98cf04051d7ac0ba21aee660217';
+                                            const tokenSymbol2 = 'M0xBTC';
+                                            const tokenDecimals2 = 8;
+                                            const tokenImage2 = 'https://basedworktoken.github.io/img/0xbitcoin.png';
+                                                         
                                             
                                             try {
                                               // wasAdded is a boolean. Like any RPC method, an error may be thrown.
@@ -1372,14 +1435,14 @@ By clicking buttons below in a browser with Metamask installed</pre>
                     <div class="well">
                         <div class="row">
                             <div class="col-lg-12">
-                                <a href="https://discord.gg/dNKbmFvvJU" class="fa fa-user"></a>
-                                <a href="https://t.me/zkBitcoinToken" class="fa fa-telegram"></a>  
-                                <a href="https://twitter.com/zkBitcoinToken" class="fa fa-twitter"></a>
-                                <a href="https://github.com/ZKBitcoinToken" class="fa fa-git"></a>
-                                <a href="https://medium.com/@zkBitcoinToken/" class="fa fa-medium"></a>
+                                <a href="https://discord.gg/QrGNf47ATk" class="fa fa-user"></a>
+                                <a href="https://t.me/basedworktoken" class="fa fa-telegram"></a>  
+                                <a href="https://twitter.com/basedworktoken" class="fa fa-twitter"></a>
+                                <a href="https://github.com/basedworktoken" class="fa fa-git"></a>
+                                <a href="https://medium.com/@basedworktoken/" class="fa fa-medium"></a>
                                
                                
-				<a href="mailto:admin@zkbitcoin.org">
+				<a href="mailto:admin@basedworktoken.org">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="fa bi bi-envelope" viewBox="0 0 16 16">
                                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
                                 </svg>   </a>
@@ -1391,7 +1454,7 @@ By clicking buttons below in a browser with Metamask installed</pre>
                         <!-- This is where users can download our miner or view the stats page -->
 Click the icon links above for our social profiles!! We would LOVE to hear from you! Good or bad!<br>
                         <!--Download is located here, already rigged to the button for instant download-->
-                        <a href="https://discord.gg/dNKbmFvvJU" class="btn btn-default btnsex">Join us On Discord for the fastest responses</a><br>
+                        <a href="href="https://discord.gg/QrGNf47ATk" class="btn btn-default btnsex">Join us On Discord for the fastest responses</a><br>
 </div>
                     
                     </div>
@@ -1402,7 +1465,7 @@ Click the icon links above for our social profiles!! We would LOVE to hear from 
                         <h3>Team Information</h3>
                     </div>
                     <div class="panel-body">
-                       <a href="./team.html" class="btn btn-default btnsex">Click Here for zkBitcoin Team Information</a>
+                       <a href="./team.html" class="btn btn-default btnsex">Click Here for Based Work Token Team Information</a>
                     </div>
                 </div>
             </div>
@@ -1424,19 +1487,19 @@ Click the icon links above for our social profiles!! We would LOVE to hear from 
                 </div>
                 
                 <div class="col-md-6 item text">
-                    <h3>zkBitcoin</h3>
+                    <h3>Based Work Token (BWORK)</h3>
                     <h5>A new way to DEFI. Mine it yourself with your GPU/FPGA/ASIC miner!!  All decentralized!!</h5>
                 </div>
                 <div class="col item">
-                    <a href="https://t.me/zkBitcoinToken" aria-label="Telegram">
+                    <a href="https://t.me/basedworktoken" aria-label="Telegram">
                   <i class="fa fa-telegram zeropadding"></i></a>
-                    <a href="https://twitter.com/zkBitcoinToken/" aria-label="Twitter">
+                    <a href="https://twitter.com/basedworktoken/" aria-label="Twitter">
                   <i class="fa fa-twitter zeropadding"></i></a>
-                    <a href="https://medium.com/@zkBitcoinToken/" aria-label="Medium">  
+                    <a href="https://medium.com/@basedworktoken/" aria-label="Medium">  
                   <i class="fa fa-medium zeropadding"></i></a>
-                    <a href="https://github.com/ZKBitcoinToken" aria-label="Github">  
+                    <a href="https://github.com/basedworktoken" aria-label="Github">  
                   <i class="fa fa-github zeropadding"></i></a>
-                    <a href="https://discord.gg/dNKbmFvvJU" aria-label="Discord">  
+                    <a href="href="https://discord.gg/QrGNf47ATk" aria-label="Discord">  
                   <i class="">Join Our Discord</i></a></div>
             </div>
         </div>
