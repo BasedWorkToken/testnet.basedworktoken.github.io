@@ -24,7 +24,7 @@ const _ZERO_BN = new Eth.BN(0, 10);
 /* todo: move these into some kind of contract helper class */
 const _CONTRACT_NAME = "BasedWorkToken";
 const _CONTRACT_SYMBOL = "BWORK";
-const _CONTRACT_ADDRESS = "0x19192f2059C881AF6231f0969a0DA2da9E8c09E8"; // main zkBTC Contract
+const _CONTRACT_ADDRESS = "0x991d59588F350f24D23e4875c2Ed80070F548862"; // main Based Work Token Contract
 
 
 const _MINT_TOPIC = "0xcf6fbb9dcea7d07263ab4f5c3a92f53af33dffc421d9d121e1c74b307e68189d";
@@ -448,8 +448,8 @@ console.log("current supply_remaining_in_era", supply_remaining_in_era);
 
   fixthis = 0.01
 
-  el_safe('#MiningRewardat360minutesSolve').innerHTML = "<b> "+(2800).toLocaleString()+" </b> zkBTC";
-  el_safe('#MiningRewardat12minutesSolve').innerHTML = "<b> "+(7).toLocaleString()+" </b> zkBTC";
+  el_safe('#MiningRewardat360minutesSolve').innerHTML = "<b> "+(2800).toLocaleString()+" </b> BWORK";
+  el_safe('#MiningRewardat12minutesSolve').innerHTML = "<b> "+(7).toLocaleString()+" </b> BWORK";
   el_safe('#StakingAPY').innerHTML = "<b>" + (fixthis).toFixed(0) + " </b> %";
 
 //DO MY STUFF FOR AUCTIONS
@@ -489,20 +489,20 @@ if(test51 != -1){
  var  auction_Total = getValueFromStats('Tokens distributed via Auctions', stats) - 32768
 
 
-  el_safe('#TokensdistributedviaAuctions').innerHTML = "<b>" + auction_Total.toLocaleString() + " </b> zkBTC";
+  el_safe('#TokensdistributedviaAuctions').innerHTML = "<b>" + auction_Total.toLocaleString() + " </b> BWORK";
  var  mining_Total = parseInt(getValueFromStats('Tokens distributed via Mining', stats));
 
 
-  el_safe('#TokensdistributedviaMining').innerHTML = "<b>" + mining_Total.toLocaleString() + " </b> zkBTC";
+  el_safe('#TokensdistributedviaMining').innerHTML = "<b>" + mining_Total.toLocaleString() + " </b> BWORK";
 
   var Staking_Total = mining_Total
 
 
-  el_safe('#TokensdistributedviaStaking').innerHTML = "<b>" + Staking_Total.toLocaleString() + " </b> zkBTC";
+  el_safe('#TokensdistributedviaStaking').innerHTML = "<b>" + Staking_Total.toLocaleString() + " </b> BWORK";
 
 	var totalCircl = parseInt(parseFloat(Staking_Total) + parseFloat(mining_Total) + parseFloat(auction_Total))
 
-  el_safe('#TotalzkBitcoinCirculatingSupply').innerHTML = "<b>" + totalCircl.toLocaleString() +" </b> zkBTC";
+  el_safe('#TotalzkBitcoinCirculatingSupply').innerHTML = "<b>" + totalCircl.toLocaleString() +" </b> BWORK";
 
 console.log("totalCircl", totalCircl);
 
@@ -677,7 +677,7 @@ rewards_blocks_remaining_in_era = rewards_blocks_remaining_in_era.toFixed(0)
   el_safe('#CurrentRewardEra').innerHTML += "<b>0</b> / 39  <span style='font-size:0.8em;'>(next era: ~" + secondsToReadableTime(rewards_blocks_remaining_in_era * seconds_per_reward) + "  @ "+secondsToReadableTime(seconds_per_reward)+" a mint)</div>";
 
 
-el_safe('#RewardPerSolve').innerHTML = "<b> "+current_Reward.toFixed(0) + "</b> zkBTC per solve"
+el_safe('#RewardPerSolve').innerHTML = "<b> "+current_Reward.toFixed(0) + "</b> BWORK per solve"
 
 
   if(mining_calculator_app) {
@@ -709,7 +709,7 @@ log("inflationCircl",circl)
   el_safe('#InflationAmountPerYear').innerHTML = "<b>" + inflation.toLocaleString(undefined, {
   minimumFractionDigits: 0,
   maximumFractionDigits: 0
-}) + "</b> zkBTC per year";
+}) + "</b> BWORK per year";
 
 /* estimated hashrate */
   hashrate = difficulty * _HASHRATE_MULTIPLIER / _IDEAL_BLOCK_TIME_SECONDS;
@@ -1544,7 +1544,7 @@ const formattedNumberparzedint = new Intl.NumberFormat(navigator.language).forma
 			+ '<a href="' + block_url + '" target="_blank">' + eth_block + '</td><td>'
 			+ '<a href="' + transaction_url + '" title="' + tx_hash + '" target="_blank">'
 			+ tx_hash.substr(0, 16) + '...</a></td><td align="right" style="text-overflow:ellipsis;white-space: nowrap;overflow: hidden;">'
-			+ miner_name_link + '</td><td>'	+ formattedNumberfffff +" zkBTC</td></tr>";
+			+ miner_name_link + '</td><td>'	+ formattedNumberfffff +" BWORK</td></tr>";
 			//+ '</a></td></tr>';
 			
 		}
