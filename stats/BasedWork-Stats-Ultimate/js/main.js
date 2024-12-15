@@ -24,7 +24,7 @@ const _ZERO_BN = new Eth.BN(0, 10);
 /* todo: move these into some kind of contract helper class */
 const _CONTRACT_NAME = "BasedWorkToken";
 const _CONTRACT_SYMBOL = "BWORK";
-const _CONTRACT_ADDRESS = "0x991d59588F350f24D23e4875c2Ed80070F548862"; // main Based Work Token Contract
+const _CONTRACT_ADDRESS = "0x004F86756F7e184075C64CEDe9A1d474DD49BE90"; // main Based Work Token Contract
 
 
 const _MINT_TOPIC = "0xcf6fbb9dcea7d07263ab4f5c3a92f53af33dffc421d9d121e1c74b307e68189d";
