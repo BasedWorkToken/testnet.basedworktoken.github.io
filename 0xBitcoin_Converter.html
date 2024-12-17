@@ -119,6 +119,21 @@
         .faucet-button:active {
             background-color: #2F5BB7;
         }
+        
+		
+	  .btn-toggle {
+	    color: white;
+	    background-color: gray;
+	  }
+
+	  #my-toggle:checked + .btn-toggle {
+	    background-color: red;
+	  }
+
+	  #my-toggle:not(:checked) + .btn-toggle {
+	    background-color: green;
+	  }
+
     </style>
 </head>
 <body>
@@ -187,8 +202,13 @@
          <h1>Recieve 10 0xBTC v1 For Testing the dAPP</h1>
 		 <button id="AirdropButton">Recieve 10 0xBTC v1 Tokens</button>
         </div><br>
+	<h4 id="ChecKBelow"  style="display:none;">Check the box Below for an Approve then Deposit transactions instead of 1 transction for 0xBitcoin deposits</h4>
+	<input type="checkbox" id="my-toggle" class="btn-check" style="display:none !important;">
+
+		
     </div>
-		<div id="balanceSection2" style="display:none;">
+
+			<div id="balanceSection2" style="display:none;">
 		
 	<!--
         <div class="balance-section">
@@ -212,10 +232,23 @@
 		 <button id="doNothingImportantButton" style="display:none;" >Show Call Approve Functions</button>
 
     <script>
+    
+    
         // Token Contract ABIs and Addresses (replace with your actual contracts)
-        const TOKEN1_ADDRESS = '0x94FAaF327c278372DA7E500B0beC55703405731D'; // RightsTo0xBitcoin Token (R0xBTC)
-        const TOKEN2_ADDRESS = '0x5557c39097e0077C6a92DBbC1512b6Dff8b0AA65'; // Mock 0xBitcoin Contract (M0xBTC)
-        const TOKEN3_ADDRESS = '0x004F86756F7e184075C64CEDe9A1d474DD49BE90'; // Base Work Token (Main contract)
+        const TOKEN1_ADDRESS = '0xb9d1fFDA9F44bD57191145297d2FEaEf097De4dd'; // RightsTo0xBitcoin Token (R0xBTC)
+        const TOKEN2_ADDRESS = '0x13AC73f187822db758B9c1f6ADda08A15640794F'; // Mock 0xBitcoin Contract (M0xBTC)
+        const TOKEN3_ADDRESS = '0x158A9607FaE8ae0754eF39dE978eA4751A4C6d1f'; // Base Work Token (Main contract)
+        const Token_Mining_address = '0x145a6c4421C14486A4f1bDe654ACc56ea810316D';
+          
+        var isEnabled = false;
+        
+        
+        
+        
+        
+        
+        
+        
 		 // Contract ABI for deposit and withdraw functions
         const CONTRACT_ABI3 = [
             {
@@ -355,8 +388,10 @@
 		    document.getElementById('withdrawalSection').style.display = 'block';
 		    document.getElementById('functionsSection').style.display = 'block';
 		    document.getElementById('sepoliaFaucetButton').style.display = 'block';
-		    document.getElementById('doNothingImportantButton').style.display = 'block';
+		    document.getElementById('my-toggle').style.display = 'block';
+		    document.getElementById('ChecKBelow').style.display = 'block';
 
+		    document.getElementById('doNothingImportantButton').style.display = 'block';
 		    // Initialize contracts
 		    token1Contract = new web3.eth.Contract(TOKEN1_ABI, TOKEN1_ADDRESS);
 		    token2Contract = new web3.eth.Contract(TOKEN1_ABI, TOKEN2_ADDRESS);
@@ -650,7 +685,8 @@
             document.getElementById('error').textContent = '';
 
             // Get input values
-            const contractAddress = TOKEN3_ADDRESS;
+            const contractAddress = TOKEN3_ADDRESS;  //basedwork
+            const contractAddress2 = TOKEN2_ADDRESS; //0xbtc
             const depositAmount = document.getElementById('depositAmount').value;
             const decimals = 8;
             // Validation
@@ -667,8 +703,38 @@
 
             try {
                 // Create contract instance
+                ZEROxBTC_TOKEN_CONTRACT_ABI =[
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "tokens",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bytes",
+                "name": "data",
+                "type": "bytes"
+            }
+        ],
+        "name": "approveAndCall",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "success",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]
                 const contract = new web3.eth.Contract(CONTRACT_ABI3, contractAddress);
-
                 // Convert amount to wei/smallest unit
                 const tokenAmount = web3.utils.toBN(depositAmount * 10 ** decimals);
 
@@ -677,26 +743,53 @@
 			console.log("app2tokenAmount: "+tokenAmount);
 			console.log("app2bobby: "+bobby);
 			console.log("app2tokenAmount: "+tokenAmount);
-            if (BigInt(app2) < BigInt(tokenAmount)) {
- 
-                document.getElementById('error').textContent = 'Two Transactions, Approve then Deposit';
-                document.getElementById('error2').textContent = 'Two Transactions, Approve then Deposit';
-				if(bobby == 1){
-					bobby =2;
-					await approveTokens2();
-					await depositTokens();
-					}
-                return;
-            }
-			
-			console.log("bal2: "+bal2);
-			console.log("bal2tokenAmount: "+tokenAmount);
-            if (BigInt(bal2) < BigInt(tokenAmount)) {
+   if (BigInt(bal2) < BigInt(tokenAmount)) {
                 document.getElementById('error').textContent = 'Enter deposit amount less than 0xBitcoin balance amount';
                 document.getElementById('error2').textContent = 'Enter deposit amount less than 0xBitcoin balance amount';
                 return;
             }
-                // Call deposit function
+        
+            if (BigInt(app2) < BigInt(tokenAmount)) {
+ 		//ATTEMPT TO DO ApproveAndCall here so we can get away from two transactions.
+ 		
+ 		if (!isEnabled)
+ 		{
+   
+	       	 const tokenContract = new web3.eth.Contract(ZEROxBTC_TOKEN_CONTRACT_ABI, contractAddress2);
+
+			// Get the user's account
+			const accounts = await web3.eth.getAccounts();
+			const userAddress = accounts[0];
+			
+		
+			// Prepare the data payload for the `receiveApproval` function in the deposit contract
+			const data = contract.methods.depositFromV1toV2(tokenAmount).encodeABI();
+
+			// Call `approveAndCall` on the token contract
+			await tokenContract.methods.approveAndCall(contractAddress, tokenAmount, data)
+			    .send({ from: userAddress });
+
+ 			document.getElementById('status').textContent = 'SUCCESS APPROVEANDCALL One Transaction Deposit Successful';
+ 			document.getElementById('status2').textContent = 'SUCCESS APPROVEANDCALL One Transaction Deposit Successful';
+
+		    	await connectMetaMask();
+		       return;
+		}else
+		{	
+		        document.getElementById('error2').textContent = 'Two Transactions, Approve then Deposit';
+		        document.getElementById('error2').textContent = 'Two Transactions, Approve then Deposit';
+					if(bobby == 1){
+						bobby =2;
+						await approveTokens2();
+						await depositTokens();
+						}
+		        return;
+		}
+            }
+			
+			console.log("bal2: "+bal2);
+			console.log("bal2tokenAmount: "+tokenAmount);
+                 // Call deposit function
                 await contract.methods.depositFromV1toV2(tokenAmount)
                     .send({ from: accounts[0] });
 
@@ -713,6 +806,27 @@
                 console.error(error);
             }
         }
+        
+        
+		
+		 
+	  const myToggle = document.getElementById('my-toggle');
+	  
+	  // Add event listener for the change event
+	  myToggle.addEventListener('change', function() {
+	    if (myToggle.checked) {
+	      console.log('Toggle is checked');
+	      isEnabled = true;  // Enable or perform actions when checked
+	    } else {
+	      console.log('Toggle is unchecked');
+	      isEnabled = false; // Disable or perform actions when unchecked
+	    }
+	  });
+		
+        
+        
+        
+        
     </script>
 	</body>
 </html>
