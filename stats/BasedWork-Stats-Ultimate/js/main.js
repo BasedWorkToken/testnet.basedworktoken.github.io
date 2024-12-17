@@ -24,7 +24,8 @@ const _ZERO_BN = new Eth.BN(0, 10);
 /* todo: move these into some kind of contract helper class */
 const _CONTRACT_NAME = "BasedWorkToken";
 const _CONTRACT_SYMBOL = "BWORK";
-const _CONTRACT_ADDRESS = "0x004F86756F7e184075C64CEDe9A1d474DD49BE90"; // main Based Work Token Contract
+const _CONTRACT_ADDRESS = "0x145a6c4421C14486A4f1bDe654ACc56ea810316D"; // main Mining contract for Based Work Token Contract
+const Main_CONTRACT_ADDRESS = "0x158A9607FaE8ae0754eF39dE978eA4751A4C6d1f"; // main Based Work Token Contract
 
 
 const _MINT_TOPIC = "0xcf6fbb9dcea7d07263ab4f5c3a92f53af33dffc421d9d121e1c74b307e68189d";
@@ -111,9 +112,9 @@ var known_miners = {
 
 
 
-
-
 const token = eth.contract(tokenABI).at(_CONTRACT_ADDRESS);
+
+const MainToken = eth.contract(tokenABI).at(Main_CONTRACT_ADDRESS);
 
 function goToURLAnchor() {
   /* kind of a hack, after charts are loaded move to correct anchor. For some
@@ -234,7 +235,7 @@ stats = [
  //adjust max supply as needed 0.00000000000344 is just guess
 ['Max Supply for Current Era',    token.maxSupplyForEra,                _CONTRACT_SYMBOL,   0.000000000000000001, null     ], /* mining */ 
   
-['Total Supply',                  token.totalSupply,                    _CONTRACT_SYMBOL,   0.000000000000000001, null     ], /* supply */
+['Total Supply',                  null,                                 "",                 1,          null     ], /* */
     
 ['',                              null,                                 "",                 1,          null     ], /* */
  
@@ -605,8 +606,8 @@ if(secUntilBlocks<1){
   
   
   }
-
-
+ el_safe('#TotalSupply').innerHTML +="<b>"+ Number((21000000).toFixed(0)).toLocaleString()+"</b> BWORK";
+ 
 log("22diff", difficulty)
 log("22rewards_since_readjustment", rewards_since_readjustment)
 log("22eth_blocks_since_last_difficulty_period", eth_blocks_since_last_difficulty_period)
