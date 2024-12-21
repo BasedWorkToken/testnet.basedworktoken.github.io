@@ -53,9 +53,9 @@ var eth = new Eth(new Eth.HttpProvider("https://sepolia.base.org"));
 //   log("warning: no web3 provider found, using infura.io as backup provider")
 // }
 
-var _BLOCK_EXPLORER_ADDRESS_URL = 'https://era.zksync.network/address/';
-var _BLOCK_EXPLORER_TX_URL = 'https://era.zksync.network/tx/';
-var _BLOCK_EXPLORER_BLOCK_URL = 'https://era.zksync.network/block/';
+var _BLOCK_EXPLORER_ADDRESS_URL = 'https://sepolia.basescan.org/address/';
+var _BLOCK_EXPLORER_TX_URL = 'https://sepolia.basescan.org/tx/';
+var _BLOCK_EXPLORER_BLOCK_URL = 'https://sepolia.basescan.org/block/';
 
 /* colors used by pool names. todo: move to css, still use them for chart.js */
 var pool_colors = {
