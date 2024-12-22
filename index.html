@@ -148,18 +148,18 @@ background-attachment: fixed;
  <h1><center>Countdown to Mainnet Mining Launch</center></h1>
 		<h3><center>Feb. 5th 4pm GMT/UTC</center></h3>
 <div id="countdown">
-    <div class="time-unit" id="days-container" style="display: none;">
-        <span id="days">00</span> Days
-    </div>
-    <div class="time-unit" id="hours-container" style="display: none;">
-        <span id="hours">00</span> Hours
-    </div>
-    <div class="time-unit" id="minutes-container" style="display: none;">
-        <span id="minutes">00</span> Minutes
-    </div>
-    <div class="time-unit" id="seconds-container" style="display: none;">
-        <span id="seconds">00</span> Seconds
-    </div>
+    <div class="time-unit" id="days-container" style="display: inline;">
+    <span id="days">00</span> Days
+</div>
+<div class="time-unit" id="hours-container" style="display: inline;">
+    <span id="hours">00</span> Hours
+</div>
+<div class="time-unit" id="minutes-container" style="display: inline;">
+    <span id="minutes">00</span> Minutes
+</div>
+<div class="time-unit" id="seconds-container" style="display: inline;">
+    <span id="seconds">00</span> Seconds
+</div>
 </div>
 
 <script>
@@ -170,8 +170,8 @@ background-attachment: fixed;
 
     // Function to update the countdown
     function updateCountdown(targetEpoch) {
-        const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
-        const timeDifference = targetEpoch - currentTime;
+        const currentTime = Math.floor(Date.now()); // Current time in seconds
+        const timeDifference = targetEpoch*1000 - currentTime;
 
         if (timeDifference <= 0) {
             document.getElementById('countdown').innerHTML = "Countdown Complete!";
@@ -179,30 +179,33 @@ background-attachment: fixed;
             return;
         }
 
-        const days = Math.floor(timeDifference / (60 * 60 * 24));
-        const hours = Math.floor((timeDifference % (60 * 60 * 24)) / (60 * 60));
-        const minutes = Math.floor((timeDifference % (60 * 60)) / 60);
-        const seconds = timeDifference % 60;
+        // Calculate time units
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
         // Display logic based on remaining time
         if (days > 0) {
-            document.getElementById('days-container').style.display = "block";
-            document.getElementById('hours-container').style.display = "none";
+            document.getElementById('days-container').style.display = "inline";
+            document.getElementById('hours-container').style.display = "inline";
             document.getElementById('minutes-container').style.display = "none";
             document.getElementById('seconds-container').style.display = "none";
+            document.getElementById('hours').textContent = formatTimeUnit(hours);
             document.getElementById('days').textContent = formatTimeUnit(days);
         } else if (hours > 0) {
             document.getElementById('days-container').style.display = "none";
-            document.getElementById('hours-container').style.display = "block";
-            document.getElementById('minutes-container').style.display = "block";
-            document.getElementById('seconds-container').style.display = "none";
+            document.getElementById('hours-container').style.display = "inline";
+            document.getElementById('minutes-container').style.display = "inline";
+            document.getElementById('seconds-container').style.display = "inline";
             document.getElementById('hours').textContent = formatTimeUnit(hours);
             document.getElementById('minutes').textContent = formatTimeUnit(minutes);
+            document.getElementById('seconds').textContent = formatTimeUnit(seconds);
         } else {
             document.getElementById('days-container').style.display = "none";
             document.getElementById('hours-container').style.display = "none";
-            document.getElementById('minutes-container').style.display = "block";
-            document.getElementById('seconds-container').style.display = "block";
+            document.getElementById('minutes-container').style.display = "inline";
+            document.getElementById('seconds-container').style.display = "inline";
             document.getElementById('minutes').textContent = formatTimeUnit(minutes);
             document.getElementById('seconds').textContent = formatTimeUnit(seconds);
         }
