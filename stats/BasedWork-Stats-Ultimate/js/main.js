@@ -24,8 +24,8 @@ const _ZERO_BN = new Eth.BN(0, 10);
 /* todo: move these into some kind of contract helper class */
 const _CONTRACT_NAME = "BasedWorkToken";
 const _CONTRACT_SYMBOL = "BWORK";
-const _CONTRACT_ADDRESS = "0x145a6c4421C14486A4f1bDe654ACc56ea810316D"; // main Mining contract for Based Work Token Contract
-const Main_CONTRACT_ADDRESS = "0x158A9607FaE8ae0754eF39dE978eA4751A4C6d1f"; // main Based Work Token Contract
+const _CONTRACT_ADDRESS = "0xE195546aA25dD513896B208f9145B676c0E7BF01"; // main Mining contract for Based Work Token Contract
+const Main_CONTRACT_ADDRESS = "0x06B075A8A6D83A75fa595d988072BF7b2A8Df93b"; // main Based Work Token Contract
 
 
 const _MINT_TOPIC = "0xcf6fbb9dcea7d07263ab4f5c3a92f53af33dffc421d9d121e1c74b307e68189d";
