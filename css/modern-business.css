@@ -464,13 +464,13 @@ background-color:#282d32;
   }
   
   div .addedclass1 {
-    background-image:url('../img/forge_orange.png'); background-size: contain; padding: 5%;
+    background-image:url('https://testnet.basedworktoken.org/img/banner_orange.png'); background-size: contain; padding: 5%;
   }
   div .addedclass2 {
-    background-image:url('../img/forge_black.png'); background-size: contain; padding: 5%;
+    background-image:url('https://testnet.basedworktoken.org/img/banner4.png'); background-size: contain; padding: 5%;
   }
   div .addedclass3 {
-    background-image:url('../img/forge_orange_wallet.png'); background-size: contain; padding: 5%;
+    background-image:url('https://testnet.basedworktoken.org/img/banner5.png'); background-size: contain; padding: 5%;
   }
   .addedstylefooter{
     margin-top: 5%;
