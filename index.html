@@ -46,6 +46,11 @@
 
 
  <style>
+body{
+  background: url(https://testnet.basedworktoken.org/img/abstract-2829961.png);
+    background-repeat: no-repeat;
+background-attachment: fixed;
+    background-size: 100% 100vh;}
        
            #countdown {
             font-size: 7.5rem;
@@ -138,62 +143,78 @@
     
     <header id="myCarousel" class="carousel slide">
     <div class="banner-container">
-  <img src="img/banner_orange.png" alt="Banner" class="banner-image">
+  <img src="https://testnet.basedworktoken.org/img/banner3.png" alt="Banner" class="banner-image">
  </div><br></br>
  <h1><center>Countdown to Mainnet Mining Launch</center></h1>
- 
- <div id="countdown">
-        <div class="time-unit">
-            <span id="days">00</span>Days
-        </div>
-        <div class="time-unit">
-            <span id="hours">00</span>Hours
-        </div>
-        <div class="time-unit">
-            <span id="minutes">00</span>Minutes
-        </div>
-        <div class="time-unit">
-            <span id="seconds">00</span>Seconds
-        </div>
+		<h3><center>Feb. 5th 4pm GMT/UTC</center></h3>
+<div id="countdown">
+    <div class="time-unit" id="days-container" style="display: none;">
+        <span id="days">00</span> Days
     </div>
+    <div class="time-unit" id="hours-container" style="display: none;">
+        <span id="hours">00</span> Hours
+    </div>
+    <div class="time-unit" id="minutes-container" style="display: none;">
+        <span id="minutes">00</span> Minutes
+    </div>
+    <div class="time-unit" id="seconds-container" style="display: none;">
+        <span id="seconds">00</span> Seconds
+    </div>
+</div>
 
+<script>
+    // Function to format time units
+    function formatTimeUnit(unit) {
+        return unit < 10 ? `0${unit}` : `${unit}`;
+    }
 
+    // Function to update the countdown
+    function updateCountdown(targetEpoch) {
+        const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+        const timeDifference = targetEpoch - currentTime;
 
-
-    <script>
-        // Function to format time units
-        function formatTimeUnit(unit) {
-            return unit < 10 ? `0${unit}` : `${unit}`;
+        if (timeDifference <= 0) {
+            document.getElementById('countdown').innerHTML = "Countdown Complete!";
+            clearInterval(interval);
+            return;
         }
 
-        // Function to update the countdown
-        function updateCountdown(targetEpoch) {
-            const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
-            const timeDifference = targetEpoch - currentTime;
+        const days = Math.floor(timeDifference / (60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (60 * 60 * 24)) / (60 * 60));
+        const minutes = Math.floor((timeDifference % (60 * 60)) / 60);
+        const seconds = timeDifference % 60;
 
-            if (timeDifference <= 0) {
-                document.getElementById('countdown').innerHTML = "Countdown Complete!";
-                clearInterval(interval);
-                return;
-            }
-
-            const days = Math.floor(timeDifference / (60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (60 * 60 * 24)) / (60 * 60));
-            const minutes = Math.floor((timeDifference % (60 * 60)) / 60);
-            const seconds = timeDifference % 60;
-
+        // Display logic based on remaining time
+        if (days > 0) {
+            document.getElementById('days-container').style.display = "block";
+            document.getElementById('hours-container').style.display = "none";
+            document.getElementById('minutes-container').style.display = "none";
+            document.getElementById('seconds-container').style.display = "none";
             document.getElementById('days').textContent = formatTimeUnit(days);
+        } else if (hours > 0) {
+            document.getElementById('days-container').style.display = "none";
+            document.getElementById('hours-container').style.display = "block";
+            document.getElementById('minutes-container').style.display = "block";
+            document.getElementById('seconds-container').style.display = "none";
             document.getElementById('hours').textContent = formatTimeUnit(hours);
+            document.getElementById('minutes').textContent = formatTimeUnit(minutes);
+        } else {
+            document.getElementById('days-container').style.display = "none";
+            document.getElementById('hours-container').style.display = "none";
+            document.getElementById('minutes-container').style.display = "block";
+            document.getElementById('seconds-container').style.display = "block";
             document.getElementById('minutes').textContent = formatTimeUnit(minutes);
             document.getElementById('seconds').textContent = formatTimeUnit(seconds);
         }
+    }
 
-        // Set your target epoch time here (in seconds)
-        const targetEpoch = 1738771200; // Replace with your epoch time
+    // Set your target epoch time here (in seconds)
+    const targetEpoch = 1738771200; // Replace with your epoch time
 
-        // Start the countdown
-        const interval = setInterval(() => updateCountdown(targetEpoch), 1000);
-    </script>
+    // Start the countdown
+    const interval = setInterval(() => updateCountdown(targetEpoch), 1000);
+</script>
+
 
     </header>
     <!-- Page Content -->
@@ -205,7 +226,7 @@
                 </h1> -->
             </div>
             <!-- This is where users can view our tokenomics on the index page-->   
-</center> 
+ 
     <div id="notice">
         Testnet Website<br>All Links Are for TESTNET ONLY
 	<!-- <a href="https://basedworktoken.org"">Go to Mainnet website</a> -->

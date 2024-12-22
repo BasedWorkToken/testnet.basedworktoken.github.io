@@ -35,20 +35,27 @@
 
     <style>
 	     body { 
+  background: url(https://testnet.basedworktoken.org/img/luke-chesser-B_oL3jEt5L4-unsplash.jpg);
+    background-repeat: no-repeat;
+background-attachment: fixed;
+    background-size: 100% 100vh;
             font-family: Arial, sans-serif; 
             margin: 20px auto; 
-            padding: 20px; 
-            background-color: #f4f4f4; 
+            padding: 0px; 
         }
         button { 
             margin: 10px 0; 
 			font-size: 2em;
             padding: 30px; 
-            background: linear-gradient(to right, #dc67e7, #bc79ef);
+            background: linear-gradient(to right, #4bcbf1, #1467f4);
             color: white; 
             border: none; 
             cursor: pointer; 
         }
+button:active {
+    box-shadow: 0 0 20px 10px rgba(220, 103, 231, 0.8), 0 0 30px 15px rgba(188, 121, 239, 0.5);
+    transform: scale(0.95); /* Adds a slight "pressing" effect */
+}
         .balance-section {
             background-color: white;
             border-radius: 5px;
@@ -68,18 +75,22 @@
         }
         #status {
             color: green;
+			font-size:3em;
             margin-top: 10px;
         }
         #error {
-            color: red;
+            color: white;
+			font-size:3em;
             margin-top: 10px;
         }
         #status2 {
             color: green;
+			font-size:3em;
             margin-top: 10px;
         }
         #error2 {
-            color: red;
+            color: white;
+			font-size:3em;
             margin-top: 10px;
         }
 		
@@ -171,12 +182,12 @@
         }
         .max-button {
             position: absolute;
-            right: 5px;
-            top: 50%;
+            right: -5px;
+            top: 35%;
             transform: translateY(-50%);
             background: blue;
             border: 1px solid #ccc;
-            border-radius: 3px;
+            border-radius: 33px;
             padding: 5px 12px;
             font-size: 15px;
             cursor: pointer;
@@ -187,7 +198,7 @@
     </style>
 </head>
 <body>
-
+ 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
